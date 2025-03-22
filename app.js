@@ -8,6 +8,7 @@ const userModel = require("./models/user")
 const postModel = require("./models/post")
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
+const post = require('./models/post');
 
 
 app.set('view engine', 'ejs');
@@ -21,18 +22,24 @@ app.get('/', (req, res) => {
 });
 
 app.get("/profile", isLoggedin ,async (req,res)=>{
-    let post = await userModel.findOne({email: req.user.email}).populate("post");
-    
-    
+    let user = await userModel.findOne({email: req.user.email}).populate("post");
     res.render('profile',{user});
 })
 
 app.get("/like/:id", isLoggedin ,async (req,res)=>{
     let user = await postModel.findOne({email: req.user.id}).populate("user");
-    // post.Likes.push(req.user.id);
-    console.log(req.user.userid);
-// res.render('profile',{user});
-res.send(req.user)
+    
+        if(post.Likes.indexOf(req.user.userid) === -1){
+            post.Likes.push(req.user.id);
+        }
+        else {
+            post.Likes.splice(post.Likes.indexOf(req.user.userid),1);
+        }
+        await post.save() ;
+
+
+
+        res.redirect("/profile") ;
 })
 
 
