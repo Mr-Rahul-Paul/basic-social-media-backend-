@@ -27,18 +27,16 @@ app.get("/profile", isLoggedin ,async (req,res)=>{
 })
 
 app.get("/like/:id", isLoggedin ,async (req,res)=>{
-    let user = await postModel.findOne({email: req.user.id}).populate("user");
+    let post = await postModel.findOne({_id: req.params.id}).populate("user");
     
         if(post.Likes.indexOf(req.user.userid) === -1){
-            post.Likes.push(req.user.id);
+            post.Likes.push(req.user.userid);
         }
         else {
             post.Likes.splice(post.Likes.indexOf(req.user.userid),1);
         }
         await post.save() ;
-
-
-
+     
         res.redirect("/profile") ;
 })
 
