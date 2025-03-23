@@ -7,6 +7,7 @@ A simple social media backend built with Node.js, Express, and MongoDB.
 - User authentication (register, login, logout)
 - Create posts
 - Like/unlike posts
+- Edit posts
 - View user profile with their posts
 
 ## Tech Stack
@@ -45,6 +46,7 @@ A simple social media backend built with Node.js, Express, and MongoDB.
 | GET    | `/profile`  | View user profile    |
 | POST   | `/post`     | Create new post      |
 | GET    | `/like/:id` | Like/unlike post     |
-
+| GET    | `/edit/:id` | Edit post            |
+| POST   | `/update/:id` | Update post         |
 
 Feel free to contribute and improve this project!
