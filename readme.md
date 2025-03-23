@@ -46,10 +46,5 @@ A simple social media backend built with Node.js, Express, and MongoDB.
 | POST   | `/post`     | Create new post      |
 | GET    | `/like/:id` | Like/unlike post     |
 
-## License
-
-This project is licensed under the MIT License.
-
----
 
 Feel free to contribute and improve this project!
