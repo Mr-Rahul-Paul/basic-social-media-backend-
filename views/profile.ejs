@@ -32,10 +32,10 @@
         <br>
         <small> <%= posts.Likes.length %> likes</small>    
         <div class="btns flex gap-4 mt-5">
-          <a class="text-blue-500" href="/like/<%= posts._id%>">
+          <a class="text-blue-500" href="/like/<%= posts._id %>">
             <%= posts.Likes.indexOf(user._id) ? "Like" : "Unlike" %>
           </a>
-          <a class="text-zinc-400" href="">Edit</a>
+          <a class="text-zinc-400" href="/edit/<%= posts._id %>">Edit</a>
         </div>
       </div>
     <% }) %>
