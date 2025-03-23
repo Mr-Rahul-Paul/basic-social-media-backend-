@@ -22,7 +22,7 @@ A simple social media backend built with Node.js, Express, and MongoDB.
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/yourusername/social-media-backend.git
+   git clone https://github.com/Mr-Rahul-Paul/social-media-backend.git
    cd social-media-backend
    ```
 2. **Install dependencies**
